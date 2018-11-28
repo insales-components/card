@@ -1,0 +1,15 @@
+{
+  "name": "Card",
+  "version": "1.0.0",
+  "description": "Превью товара",
+  "author": "LiquidHub.ru",
+  "type": "snippets",
+  "homepage": "https://github.com/insales-components/card",
+  "props": {
+    "common": true,
+    "liquid": true
+  },
+  "dependencies": {
+      "ui-images": "https://github.com/insales-components/ui-images"
+  }
+}

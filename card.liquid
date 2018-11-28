@@ -1,0 +1,51 @@
+<form class="card" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
+  <div class="card-info">
+    <div class="card-image">
+        <a href="{{ product.url }}" class="image-inner">
+          <div class="image-wraps">
+            <span class="image-container is-square">
+              <span class="image-flex-center">
+                <img src="{{ product.images.first | image_url: 320 }}">
+              </span>
+            </span>
+          </div>
+        </a>
+    </div>
+
+    <div class="card-prices">
+      {% if product.old_price %}
+      <div class="card-old_price">
+        {{ product.old_price | money }}
+      </div>
+      {% endif %}
+      <div class="card-price">
+        {{ product.price | money }}
+      </div>
+    </div>
+
+    <div class="card-title">
+      <a href="{{ product.url }}">
+        {{ product.title }}
+      </a>
+    </div>
+  </div>
+
+  <div class="card-action show-flex flex-bottom">
+    <div data-quantity class="hidden">
+      <input type="hidden" name="quantity" value="1" />
+    </div>
+    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
+
+    <div class="row flex-between flex-middle">
+      {% if product.variants.size > 1 %}
+        <a href="{{ product.url }}" class="bttn-prim">
+          Подробнее
+        </a>
+        {% else %}
+        <a href="{{ product.url }}" class="bttn-prim" data-item-add>
+          в корзину
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</form>
