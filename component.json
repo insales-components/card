@@ -10,6 +10,7 @@
     "liquid": true
   },
   "dependencies": {
+      "ui-buttons": "https://github.com/insales-components/ui-buttons",
       "ui-images": "https://github.com/insales-components/ui-images"
   }
 }

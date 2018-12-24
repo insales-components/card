@@ -38,11 +38,11 @@
 
     <div class="row flex-between flex-middle">
       {% if product.variants.size > 1 %}
-        <a href="{{ product.url }}" class="bttn-prim">
+        <a href="{{ product.url }}" class="btn-primary">
           Подробнее
         </a>
         {% else %}
-        <a href="{{ product.url }}" class="bttn-prim" data-item-add>
+        <a href="{{ product.url }}" class="btn-primary" data-item-add>
           в корзину
         </a>
       {% endif %}
