@@ -1,18 +1,20 @@
 <form class="card" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
   <div class="card-info">
-    <div class="card-image">
-        <a href="{{ product.url }}" class="image-inner">
-          <div class="image-wraps">
-            <span class="image-container is-square">
-              <span class="image-flex-center">
-                <img src="{{ product.first_image | image_url: 320 }}">
-              </span>
-            </span>
-          </div>
-        </a>
+    <div class="card-section">
+      <a href="{{ product.url }}" class="image-container is-square">
+        <span class="image-flex-center">
+          <img src="{{ product.first_image | image_url: 320 }}">
+        </span>
+      </a>
     </div>
 
-    <div class="card-prices">
+    <div class="card-section is-title">
+      <a href="{{ product.url }}" class="card-title">
+        {{ product.title }}
+      </a>
+    </div>
+
+    <div class="card-section">
       {% if product.old_price %}
       <div class="card-old_price">
         {{ product.old_price | money }}
@@ -23,26 +25,21 @@
       </div>
     </div>
 
-    <div class="card-title">
-      <a href="{{ product.url }}">
-        {{ product.title }}
-      </a>
-    </div>
   </div>
 
-  <div class="card-action show-flex flex-bottom">
+  <div class="card-action">
     <div data-quantity class="hidden">
       <input type="hidden" name="quantity" value="1" />
     </div>
     <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
 
-    <div class="row flex-between flex-middle">
+    <div class="card-section">
       {% if product.variants.size > 1 %}
-        <a href="{{ product.url }}" class="btn-primary">
+        <a href="{{ product.url }}" class="btn btn-primary">
           Подробнее
         </a>
         {% else %}
-        <a href="{{ product.url }}" class="btn-primary" data-item-add>
+        <a href="{{ product.url }}" class="btn btn-primary" data-item-add>
           в корзину
         </a>
       {% endif %}
